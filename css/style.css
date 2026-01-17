@@ -1,23 +1,98 @@
-/* css/style.css */
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    line-height: 1.6;
+    color: #333;
+    scroll-behavior: smooth; /* Esto hace que el scroll sea suave al hacer clic */
+}
+
+/* ESTILOS DE LA SECCIÓN HERO (PORTADA) */
+.hero {
+    /* Fondo con imagen y una capa oscura encima para que se lea el texto */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/portada.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-.container {
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
     text-align: center;
-    background: white;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    color: white;
 }
-h1 {
-    color: #2c3e50;
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
-p {
-    color: #666;
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+/* ESTILOS DEL MENÚ (BOTONES) */
+.main-nav {
+    display: flex;
+    gap: 20px; /* Espacio entre botones */
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que bajen de línea si no caben */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: white;
+    color: #333; /* Invierte colores al pasar el ratón */
+}
+
+/* ESTILOS GENERALES DE LAS SECCIONES */
+.section {
+    padding: 80px 20px;
+    min-height: 400px; /* Altura mínima para que se note el scroll */
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto; /* Centra el contenido */
+    text-align: center;
+}
+
+.bg-light { background-color: #f4f4f4; }
+.bg-dark { background-color: #2c3e50; color: white; }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #aaa;
+}
+
+/* --- RESPONSIVE DESIGN (PARA MÓVIL) --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    
+    .main-nav {
+        flex-direction: column; /* Pone los botones en columna */
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .main-nav a {
+        display: block; /* Ocupan todo el ancho disponible */
+        background-color: rgba(0,0,0,0.6); /* Un fondo semitransparente para leer mejor */
+    }
 }
