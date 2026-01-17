@@ -6,14 +6,20 @@
 }
 
 html {
-    scroll-behavior: smooth; /* ESTO ES LA CLAVE: Hace que baje suavemente */
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #fcfcfc;
+    color: #555; /* Texto general gris suave */
+    background-color: #fff;
+}
+
+/* --- TIPOGRAFÍA Y COLOR DE MARCA --- */
+/* APLICAMOS EL AZUL QUE TE GUSTA A TODOS LOS TÍTULOS */
+h1, h2, h3, h4, strong {
+    color: #2c3e50; 
 }
 
 /* --- CLASES DE UTILIDAD --- */
@@ -27,13 +33,19 @@ body {
     padding: 80px 0;
 }
 
-.bg-light { background-color: #f4f4f4; }
+/* El fondo claro ahora tiene un tinte azulado muy sutil (#ecf0f1) */
+.bg-light { background-color: #ecf0f1; } 
 .bg-dark { background-color: #2c3e50; color: white; }
+
+/* Corrección: Para que los títulos dentro de secciones oscuras sean blancos */
+.bg-dark h2, .bg-dark h3, .bg-dark p, .bg-dark strong {
+    color: white;
+}
 
 /* --- HERO (PORTADA) --- */
 .hero {
-    /* La ruta desde CSS sigue siendo subir un nivel (../) */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/images/portada.jpg');
+    /* CAMBIO: El filtro ya no es negro, es azul oscuro semitransparente */
+    background-image: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../assets/images/portada.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -44,10 +56,14 @@ body {
     color: white;
 }
 
+/* Forzamos blanco en el Hero porque tiene fondo oscuro */
+.hero h1, .hero p { color: white; }
+
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 10px;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .hero p {
@@ -79,7 +95,7 @@ body {
 
 .main-nav a:hover {
     background-color: white;
-    color: #333;
+    color: #2c3e50; /* Texto azul al pasar el ratón */
 }
 
 /* --- ESTILOS PERFIL (SPLIT LAYOUT) --- */
@@ -99,7 +115,7 @@ body {
     height: auto;
     border-radius: 4px;
     object-fit: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(44, 62, 80, 0.15); /* Sombra con toque azul */
 }
 
 .profile-text {
@@ -112,23 +128,25 @@ body {
     margin-bottom: 10px;
     font-weight: 400;
     letter-spacing: 2px;
+    border-bottom: 2px solid #ecf0f1; /* Línea decorativa sutil */
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
 .subtitle {
-    color: #888;
+    color: #7f8c8d; /* Gris azulado */
     margin-bottom: 25px;
     font-style: italic;
 }
 
 .bio p {
     margin-bottom: 15px;
-    color: #555;
     font-size: 1rem;
 }
 
 .small-text {
     font-size: 0.85rem;
-    color: #999;
+    color: #95a5a6;
     margin-top: 30px;
     border-top: 1px solid #eee;
     padding-top: 10px;
@@ -137,11 +155,11 @@ body {
 /* --- ACORDEÓN (DETAILS) --- */
 .accordion {
     margin-top: 40px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #ecf0f1;
 }
 
 details {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ecf0f1;
     padding: 20px 0;
 }
 
@@ -149,19 +167,20 @@ summary {
     list-style: none;
     cursor: pointer;
     font-weight: bold;
-    color: #222;
+    color: #2c3e50; /* Títulos del acordeón en azul */
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: color 0.3s;
 }
 
-summary:hover { color: #555; }
+summary:hover { color: #34495e; }
 
 summary::after {
     content: '+'; 
     font-size: 1.5rem;
     font-weight: 300;
+    color: #2c3e50;
 }
 
 details[open] summary::after { content: '-'; }
@@ -175,14 +194,108 @@ details .content {
 
 summary::-webkit-details-marker { display: none; }
 
+/* --- SEPARADOR VISUAL MEJORADO --- */
+hr.separator {
+    border: 0;
+    height: 1px;
+    /* Degradado usando el tono azul muy suave */
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(44, 62, 80, 0.2), rgba(0, 0, 0, 0));
+    margin: 0;
+    display: block;
+}
+
+/* --- ESTILOS SECCIÓN CONTACTO --- */
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+    text-align: center;
+}
+
+.contact-card {
+    flex: 1;
+    min-width: 240px;
+    max-width: 300px;
+    background: rgba(255, 255, 255, 0.05); /* Un poco más transparente para elegancia */
+    padding: 30px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px); /* Efecto de elevación al pasar ratón */
+}
+
+.contact-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    /* Los emojis no cambian de color, pero si usáramos iconos SVG podríamos ponerlos azules */
+}
+
+.contact-card h3 {
+    margin-bottom: 10px;
+    color: white; /* En fondo oscuro, blanco */
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-card p {
+    color: #bdc3c7; /* Gris claro azulado */
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Enlace blanco simple */
+.link-white {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 2px;
+    transition: all 0.3s;
+    word-break: break-all;
+}
+
+.link-white:hover {
+    color: #ecf0f1;
+    border-bottom-color: white;
+}
+
+/* Botones blancos */
+.btn-contact {
+    display: inline-block;
+    background-color: white;
+    color: #2c3e50; /* Texto azul */
+    padding: 10px 20px;
+    border-radius: 50px; /* Botones redondeados como el menú */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: auto;
+    text-transform: uppercase;
+}
+
+.btn-contact:hover {
+    background-color: #ecf0f1;
+    color: #000;
+}
+
 /* --- FOOTER --- */
 footer {
     text-align: center;
-    padding: 30px;
-    background: #1a1a1a;
-    color: #777;
+    padding: 40px;
+    background: #1a252f; /* Un azul AÚN más oscuro para el final */
+    color: #7f8c8d;
     font-size: 0.8rem;
-    margin-top: 50px;
 }
 
 /* --- RESPONSIVE MOBILE --- */
@@ -201,76 +314,4 @@ footer {
         flex-direction: column;
         gap: 30px;
     }
-}
-
-/* --- ESTILOS DE CONTACTO (FALTABAN ESTOS) --- */
-.contact-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap; 
-    text-align: center;
-}
-
-.contact-card {
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.contact-card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.contact-card h3 {
-    margin-bottom: 10px;
-    color: white;
-}
-
-.contact-card p {
-    color: #ccc;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-}
-
-.link-white {
-    color: white;
-    text-decoration: underline;
-    font-size: 1rem;
-}
-
-.link-white:hover {
-    color: #ddd;
-    text-decoration: none;
-}
-
-.btn-contact {
-    display: inline-block;
-    background-color: white;
-    color: #2c3e50;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.btn-contact:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
-}
-
-/* --- SEPARADOR VISUAL --- */
-hr.separator {
-    border: 0;
-    height: 1px; /* Grosor de la línea */
-    /* El degradado: transparente -> gris -> transparente */
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
-    margin: 0; /* Sin margen extra */
-    display: block;
 }
