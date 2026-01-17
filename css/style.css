@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente limpia y moderna */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     scroll-behavior: smooth;
@@ -29,7 +29,7 @@ body {
 
 /* --- HERO (PORTADA) --- */
 .hero {
-    /* La ruta es relativa desde el CSS: sube un nivel (../) y entra en assets */
+    /* Ruta relativa: sube un nivel (../) y entra en assets */
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/images/portada.jpg');
     background-size: cover;
     background-position: center;
@@ -41,9 +41,10 @@ body {
     color: white;
 }
 
-/* Una clase para que la cabecera de las páginas internas sea más bajita */
+/* CORRECCIÓN: Cabecera interna más alta y enfocada arriba */
 .hero-internal {
-    height: 50vh; 
+    height: 65vh; 
+    background-position: center top; /* Evita cortar la cabeza en fotos de personas */
 }
 
 .hero h1 {
@@ -71,7 +72,7 @@ body {
     color: white;
     border: 1px solid white;
     padding: 10px 25px;
-    border-radius: 50px; /* Bordes redondeados modernos */
+    border-radius: 50px;
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
@@ -84,7 +85,7 @@ body {
     color: #333;
 }
 
-/* --- ESTILOS PERFIL (SPLIT LAYOUT - PAGINA INTERNA) --- */
+/* --- ESTILOS PERFIL (SPLIT LAYOUT) --- */
 .profile-wrapper {
     display: flex;
     align-items: flex-start;
@@ -101,7 +102,7 @@ body {
     height: auto;
     border-radius: 4px;
     object-fit: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra suave */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .profile-text {
@@ -134,6 +135,22 @@ body {
     margin-top: 30px;
     border-top: 1px solid #eee;
     padding-top: 10px;
+}
+
+/* --- NUEVO: Botón "Ver más" --- */
+.btn-ver-mas {
+    display: inline-block;
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-ver-mas:hover {
+    background-color: #34495e;
 }
 
 /* --- ACORDEÓN (DETAILS) --- */
