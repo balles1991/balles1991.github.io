@@ -319,13 +319,13 @@ hr.separator {
 .contact-wrapper {
     display: flex;
     gap: 30px;
-    align-items: stretch; /* Para que ambas columnas tengan la misma altura visual */
+    align-items: stretch;
     justify-content: center;
 }
 
-/* Columna Izquierda (Solo Doctoralia) */
+/* Columna Izquierda (Doctoralia) */
 .col-booking {
-    flex: 1; /* Ocupa el 50% aprox */
+    flex: 1; 
     min-width: 300px;
     display: flex;
     flex-direction: column;
@@ -333,27 +333,28 @@ hr.separator {
 
 /* Columna Derecha (Info + Mapa) */
 .col-info {
-    flex: 1; /* Ocupa el otro 50% */
+    flex: 1;
     min-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espacio entre las tarjetas de esta columna */
+    gap: 20px; 
 }
 
 /* Estilo Base de las Tarjetas */
 .contact-card {
     background-color: #34495e;
-    padding: 30px;
+    padding: 30px; /* Margen interior estándar recuperado */
     border-radius: 12px;
     border: 1px solid #465c71;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     
-    /* Para centrar contenido */
+    /* Flexbox para organizar contenido */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden; /* Para que nada se salga de los bordes redondeados */
 }
 
 .contact-card:hover {
@@ -363,7 +364,7 @@ hr.separator {
 }
 
 .contact-card h3 {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: white;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -378,22 +379,32 @@ hr.separator {
 
 .contact-card .icon {
     font-size: 2.5rem;
-    margin-bottom: 15px;
     color: #ecf0f1;
 }
 
 /* Tarjetas pequeñas (Email y Horario) */
 .small-card {
-    flex: 0 0 auto; /* No crecen más de lo necesario */
+    flex: 0 0 auto;
+    padding: 25px 30px; /* Ajuste fino */
 }
 
-/* Tarjeta del Mapa (Ocupa el espacio restante) */
+/* Tarjeta del Mapa (Híbrida: Texto arriba, Mapa abajo) */
 .map-card {
-    flex: 1; /* Crece para llenar el hueco y equilibrar con Doctoralia */
-    min-height: 250px; /* Altura mínima de seguridad */
-    padding: 0; /* Sin padding para que el mapa toque los bordes */
-    overflow: hidden; /* Recorta las esquinas del mapa */
-    position: relative;
+    flex: 1; /* Ocupa todo el espacio sobrante */
+    min-height: 250px;
+    padding: 0; /* Quitamos padding general para controlar el mapa */
+    padding-top: 25px; /* Solo padding arriba para el texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Todo empieza arriba */
+}
+
+.map-content-wrapper {
+    /* Contenedor para el iframe que ocupe el espacio restante */
+    flex: 1; 
+    width: 100%; 
+    margin-top: 15px; /* Separación con el texto */
+    min-height: 200px;
 }
 
 .map-card iframe {
@@ -413,87 +424,12 @@ hr.separator {
 }
 .link-white:hover { border-bottom-color: white; }
 
-/* Botones Elegantes (Si se usaran en otros sitios) */
-.btn-elegant {
-    display: inline-block;
-    background-color: transparent;
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    padding: 12px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: all 0.4s ease;
-    font-weight: bold;
-    text-align: center;
-    align-self: center; 
-    margin-top: 20px; 
-}
-.btn-elegant:hover {
-    background-color: white;
-    color: #34495e; 
-    border-color: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-}
 
-.map-container {
-    width: 100%;
-    height: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: 20px;
-    border: 1px solid #465c71;
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* --- FOOTER --- */
-footer {
-    text-align: center;
-    padding: 40px;
-    background: #1a252f;
-    color: #a4b0be;
-    font-size: 0.8rem;
-}
-
-/* --- RESPONSIVE MOBILE --- */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2rem; }
-    
-    .main-nav {
-        flex-direction: column;
-        width: 100%;
-        padding: 0 40px;
-    }
-
-    .main-nav a { display: block; text-align: center; }
-
-    .profile-wrapper {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    /* Ajuste para el nuevo contacto en móvil */
     .contact-wrapper {
         flex-direction: column;
     }
-    
-    .col-booking, .col-info {
-        width: 100%;
-    }
-    
-    .map-card {
-        height: 300px; /* Altura fija en móvil */
-    }
-    
-    .about-box {
-        padding: 30px;
-    }
+    .col-booking, .col-info { width: 100%; }
+    .map-card { height: 350px; }
 }
