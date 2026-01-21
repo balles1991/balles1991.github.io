@@ -59,7 +59,6 @@
                         <p class="small-text">
                             Licenciada en Medicina y Cirugía. Especialidad en Psiquiatría.<br>
                             Nº de Colegiada: 282877157
-
                         </p>
                     </div>
 
@@ -171,51 +170,55 @@
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 40px;">Contacto</h2>
             
-            <div class="contact-grid">
+            <div class="contact-wrapper">
                 
-                <div class="contact-card">
-                    <div class="icon">✉️</div>
-                    <h3>Escríbeme</h3>
-                    <p>Para dudas o consultas directas:</p>
-                    <a href="mailto:dra.irenecuevas@gmail.com" class="link-white">dra.irenecuevas@gmail.com</a>
-                </div>
-
-                <div class="contact-card">
-                    <div class="icon">🕒</div>
-                    <h3>Horario</h3>
-                    <p>Atención presencial:</p>
-                    <p style="color: white; font-weight: bold; font-size: 1.1rem;">
-                        Martes y Viernes<br>
-                        16:00 - 21:00
-                    </p>
-                </div>
-
-                <div class="contact-card" style="justify-content: flex-start;">
-                    <div class="icon">📅</div>
-                    <h3>Pide Cita</h3>
-                    <p style="margin-bottom: 20px;">Reserva tu cita directamente aquí:</p>
-                    
-                    <div style="width: 100%;">
-                        <a id="zl-url" class="zl-url" href="https://www.doctoralia.es/irene-cuevas-iniguez/psiquiatra/madrid" rel="nofollow" data-zlw-doctor="irene-cuevas-iniguez" data-zlw-type="big_with_calendar" data-zlw-opinion="false" data-zlw-hide-branding="true" data-zlw-saas-only="true" data-zlw-a11y-title="Widget de reserva de citas médicas">Irene Cuevas Iñiguez - Doctoralia.es</a><script>!function($_x,_s,id){var js,fjs=$_x.getElementsByTagName(_s)[0];if(!$_x.getElementById(id)){js = $_x.createElement(_s);js.id = id;js.src = "//platform.docplanner.com/js/widget.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","zl-widget-s");</script>
+                <div class="col-booking">
+                    <div class="contact-card" style="height: 100%; padding: 0; overflow: hidden; justify-content: flex-start;">
+                        <div style="background: #2c3e50; width: 100%; padding: 15px; border-bottom: 1px solid #465c71;">
+                            <h3 style="margin:0; font-size: 1rem;">📅 Pide Cita Online</h3>
+                        </div>
+                        
+                        <div style="flex: 1; width: 100%;">
+                            <a id="zl-url" class="zl-url" href="https://www.doctoralia.es/irene-cuevas-iniguez/psiquiatra/madrid" rel="nofollow" data-zlw-doctor="irene-cuevas-iniguez" data-zlw-type="big_with_calendar" data-zlw-opinion="false" data-zlw-hide-branding="true" data-zlw-saas-only="true" data-zlw-a11y-title="Widget de reserva de citas médicas">Irene Cuevas Iñiguez - Doctoralia.es</a><script>!function($_x,_s,id){var js,fjs=$_x.getElementsByTagName(_s)[0];if(!$_x.getElementById(id)){js = $_x.createElement(_s);js.id = id;js.src = "//platform.docplanner.com/js/widget.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","zl-widget-s");</script>
+                        </div>
                     </div>
                 </div>
 
-                <div class="contact-card">
-                    <div class="icon">📍</div>
-                    <h3>Visítame</h3>
-                    <p>C. de Ferraz, 82, Madrid</p>
+                <div class="col-info">
                     
-                    <div class="map-container" style="height: 400px;">
+                    <div class="contact-card small-card">
+                        <div style="display:flex; align-items:center; gap: 15px;">
+                            <span style="font-size: 2rem;">✉️</span>
+                            <div style="text-align: left;">
+                                <h3 style="margin-bottom: 5px; font-size: 1rem;">Escríbeme</h3>
+                                <a href="mailto:dra.irenecuevas@gmail.com" class="link-white">dra.irenecuevas@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card small-card">
+                        <div style="display:flex; align-items:center; gap: 15px;">
+                            <span style="font-size: 2rem;">🕒</span>
+                            <div style="text-align: left;">
+                                <h3 style="margin-bottom: 5px; font-size: 1rem;">Horario Presencial</h3>
+                                <p>Martes y Viernes: 16:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card map-card">
                         <iframe 
-                            width="100%" 
-                            height="100%" 
-                            frameborder="0" 
-                            scrolling="no" 
-                            marginheight="0" 
-                            marginwidth="0" 
-                            src="https://maps.google.com/maps?q=C.+de+Ferraz,+82,+Madrid&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                            src="https://maps.google.com/maps?q=C.+de+Ferraz,+82,+Madrid&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
+                        
+                        <div style="position: absolute; bottom: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; color: #2c3e50; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                            📍 C. de Ferraz, 82
+                        </div>
                     </div>
+
                 </div>
 
             </div>
