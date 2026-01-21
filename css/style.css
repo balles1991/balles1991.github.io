@@ -390,21 +390,29 @@ hr.separator {
 /* Tarjeta del Mapa (Híbrida: Texto arriba, Mapa grande abajo) */
 .map-card {
     flex: 1; 
-    /* CAMBIO: Altura mínima aumentada considerablemente para que el mapa sea grande */
     min-height: 450px; 
-    padding: 0; 
-    padding-top: 25px; /* Solo padding arriba para el texto */
+    
+    /* CAMBIO: Padding por los 4 lados (25px arriba, 30px resto) */
+    padding: 25px 30px 30px 30px;
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
 }
 
 .map-content-wrapper {
-    /* Contenedor para el iframe que ocupe todo el espacio restante */
+    /* Contenedor para el iframe */
     flex: 1; 
     width: 100%; 
     margin-top: 15px; /* Separación con el texto */
-    height: 100%; /* Asegura que llene el hueco */
+    height: 100%; 
+    
+    /* CAMBIO: Esquinas redondeadas para el mapa ahora que "flota" dentro */
+    border-radius: 8px; 
+    overflow: hidden; /* Para que el mapa respete el redondeado */
+    
+    /* Sombra opcional para que destaque sobre el fondo azul */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
 }
 
 .map-card iframe {
